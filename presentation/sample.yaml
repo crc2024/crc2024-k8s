@@ -1,0 +1,36 @@
+course_name: "Container Magic: A Practical Introduction to Kubernetes and AKS in Azure"
+details: Corporate Readiness Certification course
+prelegents:
+  - prelegent 1
+  - prelegent 2
+lessons:
+  - title: Overview of Containerization
+    date: 12.03.2024
+    order: 1
+    topics:
+      - Overview of Containerization
+      - Kubernetes Architecture 
+  - title: Core Kubernetes Concepts and Resources
+    date: 19.03.2024
+    order: 2
+    topics:
+      - Pods and Containers
+      - Services and Networking
+  - title: Deployments and Scaling in Kubernetes
+    date: 02.04.2024
+    order: 3
+    topics:
+      - Deployments
+      - Scaling applications
+  - title: Configuring Applications with ConfigMaps
+    date: 09.04.2024
+    order: 4
+    topics:
+      - ConfigMaps
+      - Using ConfigMaps in Deployments
+  - title: Deploying Kubernetes on Microsoft Azure (AKS)
+    date: 16.04.2024
+    order: 5
+    topics:
+      - Introduction to Azure Kubernetes Service (AKS)
+      - Creating a Managed Kubernetes Cluster on AKS

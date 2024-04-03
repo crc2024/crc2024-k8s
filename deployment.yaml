@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnetapp # it will be part of the POD name
+spec:
+  replicas: 2
+  #minReadySeconds: 0
+  strategy:
+    type: RollingUpdate #Recreate
+    rollingUpdate:
+      maxSurge: "25%"
+      maxUnavailable: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: dotnetapp # same as POD label
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: dotnetapp # example POD label
+    spec:
+      containers:
+      - name: <container-name>
+        image: mcr.microsoft.com/dotnet/samples:aspnetapp #sample image
+        resources:
+          limits:
+            memory: "70Mi"
+            cpu: "70m"
+          requests:
+            memory: "50Mi"
+            cpu: "25m"
+        ports:
+        - containerPort: 8080 #POD port

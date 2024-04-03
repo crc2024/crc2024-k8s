@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dotnetapp # POD name example
+  labels: # sample labels; could be used as selectors i.e. in SERVICE 
+    app.kubernetes.io/name: dotnetapp 
+    version: "1.2"
+    environment: dev
+  annotations:
+    createdBy: "some name"
+spec:
+  containers:
+  - name: dotnetapp
+    image: mcr.microsoft.com/dotnet/samples:aspnetapp
+    ports:
+    - containerPort: 8080
+    resources:
+      requests:
+        memory: "20Mi"
+        cpu: "50m"
+      limits:
+        memory: "700Mi"
+        cpu: "80m"
+  

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnetapp-service #sample service name
+spec:
+  selector:
+    app.kubernetes.io/name: dotnetapp #should be same as one of the POD labels
+  type: LoadBalancer
+  loadBalancerIP: <external-ip-address> #ip address of external load balancer
+  ports:
+  - port: 8080 #exposed port
+    targetPort: 8080 #same as POD port

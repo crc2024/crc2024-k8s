@@ -1,0 +1,30 @@
+#general
+kubectl get pods -n (--namespace) <namespace-name>
+kubectl describe pod -n (--namespace) <namespace-name>
+kubectl get service -n (--namespace) <namespace-name>
+kubectl describe service -n (--namespace) <namespace-name>
+kubectl delete
+
+#creation
+- generators
+    kubectl run dotnetapp --image=mcr.microsoft.com/dotnet/samples:aspnetapp --port=8080
+    kubectl expose pod/dotnetapp --name=dotnetsrv --port=80 --target-port=8080 --type=LoadBalancer
+- declarative
+    kubectl apply -f <file-name>
+- imperative
+    kubectl create 
+
+#deployment
+kubectl rollout status deployment/<deployment-name>
+kubectl get replicaset <rs>
+kubectl set image deployment/<name>> <container-name>=<image-name:tag>
+kubectl edit deployment/<deployment-name>
+kubectl rollout history deployment/<deployment-name>
+kubectl rollout history deployment/<deployment-name> --revision=2 <-- details
+kubectl rollout undo deployment/<deployment-name>
+kubectl rollout undo deployment/<deployment-name> --to-revision=2
+kubectl scale deployment/<deployment-name> --replicas=2
+kubectl rollout pause deployment/<deployment-name>
+
+#load increase
+kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- <address>; done"
