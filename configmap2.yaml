@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dotnetapp-cf2
+data:
+  testVal: crc2024
+  testVal2: testowa wartosc

@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dotnet-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: www.crc2024.pl
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: dotnetapp-service
+                port:
+                  number: 8080
+            path: /crc2024
+          - pathType: Prefix
+            backend:
+              service:
+                name: nginx-service
+                port:
+                  number: 80
+            path: /nginx
+        

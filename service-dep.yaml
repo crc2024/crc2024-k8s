@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: dotnetapp #should be same as one of the POD labels
-  type: ClusterIP
+  type: LoadBalancer
   #loadBalancerIP: 108.141.8.147 #ip address of external load balancer
   ports:
   - port: 8080 #exposed port
