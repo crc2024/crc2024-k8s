@@ -7,8 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: www.crc2024.pl
-      http:
+    - http:
         paths:
           - pathType: Prefix
             backend:
